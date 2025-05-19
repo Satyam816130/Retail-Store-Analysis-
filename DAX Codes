@@ -1,0 +1,19 @@
+DAX codes 
+
+1. Calender= CALENDER(MIN(Orders1[order date]), MAX(Orders1[Order Date]))
+
+2. 5 best Sub category= Count('details(1)[Sub-category])
+
+3. Avg revenue of State=  CALCULATE( AVERAGE( 'Details (1)' [revenue]), ALLEXCEPT(Orders1, Orders1[State]))
+
+4. MTD Dec= TOTALMTD([total revenue],calender[Date])
+
+5. top5= IF([rank]<=5,[total revenue], BLANK())
+
+6. Category wise revenue= Calculate([total revenue],ALLEXCEPT('details (1)', 'details(1)[Category]))
+
+7. rank= Rankx(all(orders1[state]),[Total revenue],,Desc,Dense)
+
+8. Rolling sum of 2018= CALCULATE([tptal revenue], FILTER(all(calender),calender(date)<=max(calender[date].[date])))
+
+9. last quarter revenue= Calculate( [total revenue], dateinperiod(calender[date],max(calender[date],-1,Quarter)))
